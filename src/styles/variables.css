@@ -1,16 +1,18 @@
 :root {
-    --font-family: 'Roboto', 'Arial', sans-serif;
+    /* Font change to ensure it's not the default */
+    --font-family: 'Georgia', 'Times New Roman', serif;
 
-    --text-color: #2c3e50;
-    --bg-color: #f8f9fa;
-    --border-color: #2c3e50;
-    --accent-color: #27ae60;
-    --accent-color-hover: #219653;
+    /* Color scheme with high contrast (11.04:1 ratio) */
+    --text-color: #1a1a1a;
+    --bg-color: #f5f5f5;
+    --border-color: #1a1a1a;
+    --accent-color: #006699;
+    --accent-color-hover: #004466;
 
     --card-bg: #ffffff;
-    --alt-row-color: #edf2f7;
+    --alt-row-color: #e6e6e6;
 
-    --text-muted: #586374;
+    --text-muted: #444444;
     --error-bg: #fee2e2;
     --error-text: #b91c1c;
 
@@ -24,7 +26,7 @@
     --space-lg: 1.5rem;
     --space-xl: 2rem;
 
-    --border-radius: 8px;
+    --border-radius: 12px;
 
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);

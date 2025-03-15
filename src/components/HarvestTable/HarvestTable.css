@@ -1,0 +1,51 @@
+.harvest-card {
+    width: 100%;
+}
+
+.harvest-card-header {
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.harvest-card-body {
+    padding: 0 !important;
+    overflow: hidden;
+}
+
+.harvests-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--border-color);
+}
+
+.harvests-table th,
+.harvests-table td {
+    padding: 0.75rem;
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.harvests-table th {
+    background-color: var(--accent-color);
+    color: white;
+    font-weight: 500;
+}
+
+.even-row {
+    background-color: var(--alt-row-color);
+}
+
+.odd-row {
+    background-color: var(--card-bg);
+}
+
+.plant-empty {
+    border: 1px dashed var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    color: var(--text-muted);
+    font-style: italic;
+    margin: 1rem;
+}

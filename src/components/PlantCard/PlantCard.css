@@ -1,0 +1,82 @@
+.plant-card {
+    flex: 1 1 300px;
+    max-width: 100%;
+    border-radius: var(--border-radius);
+    border: 2px solid var(--border-color);
+    overflow: hidden;
+}
+
+.plant-card-content {
+    display: flex;
+    padding: 1.25rem !important;
+}
+
+.plant-card-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.circle-image {
+    width: 128px;
+    height: 128px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--accent-color);
+    transition: transform 0.3s ease;
+}
+
+.card-hoverable:hover .circle-image {
+    transform: scale(1.05);
+}
+
+.plant-card-info {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.plant-card-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.plant-card-info p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.view-details-link {
+    margin-top: auto;
+    display: inline-block;
+    color: var(--accent-color);
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.5rem 0;
+}
+
+.view-details-link:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+    .plant-card-content {
+        flex-direction: column;
+    }
+
+    .plant-card-image,
+    .plant-card-info {
+        width: 100%;
+    }
+
+    .plant-card-image {
+        margin-bottom: 1rem;
+    }
+
+    .circle-image {
+        width: 100px;
+        height: 100px;
+    }
+}

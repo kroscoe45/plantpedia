@@ -1,23 +1,23 @@
 import { useState, useEffect } from 'react';
-import { ApiClient } from '../api';
-import { Plant } from '../domain';
-import LocationSection from './LocationSection';
-// Using consolidated styles.css
+import { useApi } from '../../contexts/api-context.tsx';
+import { Plant } from '../../types';
+import { CollapsibleLocationContainer } from '../../components/CollapsibleLocationContainer';
+import './PlantListPage.css';
 
-const PlantListPage = () => {
+export const PlantListPage = () => {
     const [plants, setPlants] = useState<Plant[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
-    // Initialize API client
-    const api = new ApiClient('https://cpsc4910sq24.s3.amazonaws.com');
+    // Use API context instead of creating a new instance
+    const api = useApi();
 
     useEffect(() => {
         const fetchPlants = async () => {
             try {
                 setLoading(true);
                 const plantList = await api.getPlantList();
-                setPlants(plantList);
+                setPlants(plantList || []);
             } catch (err) {
                 setError('Error loading plants. Please try again later.');
                 console.error('Error fetching plant list:', err);
@@ -27,10 +27,14 @@ const PlantListPage = () => {
         };
 
         fetchPlants();
-    }, []);
+    }, [api]);
 
     // Group plants by location
     const groupPlantsByLocation = (plants: Plant[]): Record<string, Plant[]> => {
+        if (!plants || plants.length === 0) {
+            return {};
+        }
+
         return plants.reduce((acc, plant) => {
             const location = plant.location;
             if (!acc[location]) {
@@ -52,12 +56,12 @@ const PlantListPage = () => {
     const plantsByLocation = groupPlantsByLocation(plants);
 
     return (
-        <div className="plant-listing-page container">
+        <div className="plant-list-page container">
             {Object.keys(plantsByLocation).length === 0 ? (
                 <p className="plant-empty">No plants found.</p>
             ) : (
                 Object.entries(plantsByLocation).map(([location, locationPlants]) => (
-                    <LocationSection
+                    <CollapsibleLocationContainer
                         key={location}
                         location={location}
                         plants={locationPlants}
@@ -67,5 +71,3 @@ const PlantListPage = () => {
         </div>
     );
 };
-
-export { PlantListPage };
