@@ -1,0 +1,181 @@
+.plant-detail-page {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.plant-name {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.plant-content {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+}
+
+/* Media query for responsive layout */
+@media (max-width: 600px) {
+    .plant-content {
+        flex-direction: column;
+    }
+
+    .plant-content:before {
+        display: none;
+    }
+}
+
+/* For screens 600px and wider */
+@media (min-width: 600px) {
+    .plant-content {
+        position: relative;
+    }
+
+    .plant-content:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        height: 100%;
+        width: 1px;
+        background-color: var(--border-color);
+    }
+
+    .plant-info, .harvests-section {
+        width: 50%;
+    }
+}
+
+.plant-info, .harvests-section {
+    flex: 1;
+    animation: slideUp 0.5s ease-out;
+}
+
+.plant-image-container {
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.plant-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.plant-details p {
+    margin-bottom: 0.75rem;
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.harvests-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.harvests-table th,
+.harvests-table td {
+    padding: 0.75rem;
+    text-align: center;
+}
+
+.harvests-table th {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+}
+
+.even-row {
+    background-color: var(--alt-row-color);
+}
+
+.plant-empty {
+    border: 1px dashed var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.plant-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    font-size: 1.125rem;
+    color: var(--text-muted);
+    background: linear-gradient(90deg, var(--loading-bg-start) 25%, var(--loading-bg-mid) 50%, var(--loading-bg-end) 75%);
+    background-size: 200% 100%;
+    animation: loading-pulse 1.5s infinite;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.plant-error {
+    text-align: center;
+    padding: 3rem;
+    background-color: var(--error-bg);
+    border-radius: 8px;
+    color: var(--error-text);
+    max-width: 500px;
+    margin: 3rem auto;
+    box-shadow: var(--shadow-md);
+}
+
+.plant-error p {
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.back-link {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.button {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.button:hover {
+    background-color: var(--accent-color-hover);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes loading-pulse {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
