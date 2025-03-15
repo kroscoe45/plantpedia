@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
-import { ApiClient } from '../../services/api.ts';
-import { Plant } from '../../types';
+import { ApiClient } from '../api';
+import { Plant } from '../domain';
+import LocationSection from './LocationSection';
+// Using consolidated styles.css
 
 const PlantListPage = () => {
     const [plants, setPlants] = useState<Plant[]>([]);
